@@ -1,3 +1,4 @@
 build/*
+bin/*
 tools/Download/*
 tools/toolchain/*
