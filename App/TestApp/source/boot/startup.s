@@ -1,6 +1,3 @@
-#include "ARMv7AR.h"
-#include "MemoryMap.h"
-
 .text
     .code 32
 
