@@ -9,7 +9,7 @@ project(
     # Version <Major>.<Minor>.<Patch>.<Tweak>
     VERSION         0.0.0.1
     # Language Information
-    LANGUAGES       C
+    LANGUAGES       ASM C
 )
 
 
@@ -23,10 +23,10 @@ list(APPEND INCS include)
 #           Source Paths
 #++++++++++++++++++++++++++++++++++++++++++
 # Linker Script
-# set(LINKER_SCRIPT)
+set(LINKER_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/source/boot/default.ld)
 
 # ASM
-list(APPEND ASRC source/boot/startup.S)
+list(APPEND ASRC source/boot/startup.s)
 # C
 list(APPEND CSRC source/boot/main.c)
 
@@ -52,9 +52,9 @@ target_compile_options(${PROJECT_NAME} PUBLIC
     $<$<COMPILE_LANGUAGE:C>:${CFLAGS}>
     $<$<COMPILE_LANGUAGE:CXX>:${CXXFLAGS}>
 )
-target_link_options(${PROJECT_NAME} PUBLIC 
+target_link_options(${PROJECT_NAME} PUBLIC
+    -T ${LINKER_SCRIPT}
     ${LDFLAGS}
-    
     # --cref : Generate Cross Reference Table into Map file
     -Wl,-Map=${CMAKE_HOME_DIRECTORY}/bin/${PROJECT_NAME}/${PROJECT_NAME}.map,--cref
 )

@@ -4,7 +4,7 @@ CANONICAL_DIR=`readlink -f $RELATIVE_DIR`
 
 if ! [ -x "$(command -v aria2c)" ]; then
     echo Installing aria2
-    sudo apt install aria2
+    sudo apt install aria2 -y
 fi
 
 HOST_ARCH="x86_64"

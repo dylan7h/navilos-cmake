@@ -1,5 +1,6 @@
 # Target Configuration
-TOOLCHAIN_FILE			?=.config/toolchain/llvm-arm-none-eabi.cmake
+# TOOLCHAIN_FILE			?=.config/toolchain/llvm-arm-none-eabi.cmake
+TOOLCHAIN_FILE			?=.config/toolchain/arm-none-eabi.cmake
 CONFIG_FILE				?=.config/defconfig.cmake
 BINARY_DIR				?=build
 TARGET					?=all
@@ -12,8 +13,10 @@ COLOR_MAKEFILE			?=ON
 
 .PHONY: config build
 
-all:
-	@cmake --build ${BINARY_DIR} --target ${TARGET}
+all: config build
+
+toolchain_install:
+	@./tools/InstallToolChain.sh
 
 config:
 	@cmake 	-C ${CONFIG_FILE} \
@@ -23,6 +26,9 @@ config:
 			-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=${EXPORT_COMPILE_COMMANDS} \
 			-DCMAKE_COLOR_MAKEFILE:BOOL=${COLOR_MAKEFILE} \
 			-H$(PWD) -B${BINARY_DIR}
+
+build:
+	@cmake --build ${BINARY_DIR} --target ${TARGET}
 
 clean:
 	@cmake --build ${BINARY_DIR} --target clean

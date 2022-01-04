@@ -10,7 +10,7 @@ LIST(APPEND CMAKE_PROGRAM_PATH ${TOOL_DIR})
 
 set(CMAKE_AR                    ${LLVM_DIR}/bin/llvm-ar)
 
-set(CMAKE_ASM_COMPILER          ${LLVM_DIR}/bin/llvm-as)
+set(CMAKE_ASM_COMPILER          ${LLVM_DIR}/bin/clang)
 set(CMAKE_ASM_COMPILER_TARGET   ${CLANG_TARGET_TRIPLE})
 
 set(CMAKE_C_COMPILER            ${LLVM_DIR}/bin/clang)
