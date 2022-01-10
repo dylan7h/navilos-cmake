@@ -1,0 +1,145 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "config",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "config",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "build",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":[
+                "config"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "distclean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "distclean",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "qemu_run",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "qemu_run",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "qemu_debug",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "qemu_debug",
+                "TOOLCHAIN_FILE=${config:Makefile.TOOLCHAIN_FILE}",
+                "CONFIG_FILE=${config:Makefile.CONFIG_FILE}",
+                "BINARY_DIR=${config:Makefile.BINARY_DIR}",
+                "TARGET=${config:Makefile.TARGET}",
+                "VERBOSE_MAKEFILE=${config:Makefile.VERBOSE_MAKEFILE}",
+                "BUILD_TYPE=${config:Makefile.BUILD_TYPE}",
+                "EXPORT_COMPILE_COMMANDS=${config:Makefile.EXPORT_COMPILE_COMMANDS}",
+                "COLOR_MAKEFILE=${config:Makefile.COLOR_MAKEFILE}",
+                "TARGET_MACHINE=${config:Makefile.TARGET_MACHINE}",
+                "GDB_PORT=${config:Makefile.GDB_PORT}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":[
+                "build"
+            ]
+        }
+    ]
+}

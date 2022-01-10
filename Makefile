@@ -3,13 +3,17 @@
 TOOLCHAIN_FILE			?=.config/toolchain/arm-none-eabi.cmake
 CONFIG_FILE				?=.config/defconfig.cmake
 BINARY_DIR				?=build
-TARGET					?=all
+TARGET					?=TestApp
 
 # CMake Configurtation
 VERBOSE_MAKEFILE		?=ON
 BUILD_TYPE				?=Debug
 EXPORT_COMPILE_COMMANDS	?=ON
 COLOR_MAKEFILE			?=ON
+
+# QEMU Configurtation
+TARGET_MACHINE			?=realview-pb-a8
+GDB_PORT				?=9460
 
 .PHONY: config build
 
@@ -37,3 +41,8 @@ distclean:
 	@echo remove 'build & bin' direcotry
 	@cmake -E remove_directory build bin
 
+qemu_run:
+	qemu-system-arm -M ${TARGET_MACHINE} -kernel bin/${TARGET}/${TARGET}.axf
+
+qemu_debug:
+	qemu-system-arm -M ${TARGET_MACHINE} -kernel bin/${TARGET}/${TARGET}.axf -S -gdb tcp::${GDB_PORT},ipv4

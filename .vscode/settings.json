@@ -1,0 +1,19 @@
+{
+    "Makefile": {
+        /* Target Configuration */
+        "TOOLCHAIN_FILE": ".config/toolchain/arm-none-eabi.cmake",
+        "CONFIG_FILE": ".config/defconfig.cmake",
+        "BINARY_DIR": "build",
+        "TARGET": "TestApp",
+
+        /* CMake Configurtation */
+        "VERBOSE_MAKEFILE": "ON",
+        "BUILD_TYPE": "Debug",
+        "EXPORT_COMPILE_COMMANDS": "ON",
+        "COLOR_MAKEFILE": "ON",
+
+        /* QEMU Configurtation */
+        "TARGET_MACHINE": "realview-pb-a8",
+        "GDB_PORT": 9460
+    }
+}
