@@ -7,7 +7,8 @@ LIST(APPEND CMAKE_PROGRAM_PATH ${TOOL_DIR})
 
 set(CMAKE_AR                    ${GCC_DIR}/bin/arm-none-eabi-ar)
 
-set(CMAKE_ASM_COMPILER          ${GCC_DIR}/bin/arm-none-eabi-as)
+# set(CMAKE_ASM_COMPILER          ${GCC_DIR}/bin/arm-none-eabi-as)
+set(CMAKE_ASM_COMPILER          ${GCC_DIR}/bin/arm-none-eabi-gcc)
 
 set(CMAKE_C_COMPILER            ${GCC_DIR}/bin/arm-none-eabi-gcc)
 set(CMAKE_C_COMPILER_AR         ${GCC_DIR}/bin/arm-none-eabi-ar)     # GCC archiver

@@ -26,7 +26,7 @@ list(APPEND INCS include)
 set(LINKER_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/source/boot/default.ld)
 
 # ASM
-list(APPEND ASRC source/boot/startup.s)
+list(APPEND ASRC source/boot/startup.S)
 # C
 list(APPEND CSRC source/boot/main.c)
 
@@ -53,6 +53,7 @@ target_compile_options(${PROJECT_NAME} PUBLIC
     $<$<COMPILE_LANGUAGE:CXX>:${CXXFLAGS}>
 )
 target_link_options(${PROJECT_NAME} PUBLIC
+    ${FLAGS}
     -T ${LINKER_SCRIPT}
     ${LDFLAGS}
     # --cref : Generate Cross Reference Table into Map file

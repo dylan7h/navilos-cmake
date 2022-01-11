@@ -2,6 +2,7 @@
 #           Compile Options
 #++++++++++++++++++++++++++++++++++++++++++
 # Common
+list(APPEND FLAGS -mcpu=${ARM_CPU})
 list(APPEND FLAGS -march=${ARM_CPU_ARCH})
 list(APPEND FLAGS -mfloat-abi=${ARM_FPU_ABI})
 if(NOT ${ARM_FPU} STREQUAL "")
@@ -9,6 +10,7 @@ list(APPEND FLAGS -mfpu=${ARM_FPU})
 endif()
 
 # ASM
+list(APPEND ASFLAGS -D__ASM)
 
 # C
 list(APPEND CFLAGS -m${ARM_INST_SET})
