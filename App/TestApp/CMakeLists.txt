@@ -23,12 +23,16 @@ list(APPEND INCS include)
 #           Source Paths
 #++++++++++++++++++++++++++++++++++++++++++
 # Linker Script
-set(LINKER_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/source/boot/default.ld)
+set(LINKER_SCRIPT ${DEFAULT_LINKER_SCRIPT})
+
+# Startup
+set(STARTUP ${DEFAULT_STARTUP})
 
 # ASM
-list(APPEND ASRC source/boot/startup.S)
+list(APPEND ASRC )
+
 # C
-list(APPEND CSRC source/boot/main.c)
+list(APPEND CSRC source/main.c)
 
 
 #++++++++++++++++++++++++++++++++++++++++++
@@ -44,7 +48,7 @@ list(APPEND LIBS)
 #           Target Definition
 #++++++++++++++++++++++++++++++++++++++++++
 # For ELF or AXF
-add_executable(${PROJECT_NAME} ${ASRC} ${CSRC})
+add_executable(${PROJECT_NAME} ${STARTUP} ${ASRC} ${CSRC})
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCS})
 target_compile_options(${PROJECT_NAME} PUBLIC
     ${FLAGS}

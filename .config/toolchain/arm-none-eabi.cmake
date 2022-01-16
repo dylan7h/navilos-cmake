@@ -2,8 +2,10 @@ set(GCC_DIR                     "${CMAKE_SOURCE_DIR}/tools/toolchain/arm-none-ea
 
 set(CMAKE_SYSTEM_NAME           Generic)
 set(CMAKE_SYSTEM_PROCESSOR      cortex-a8)
+set(CMAKE_C_COMPILER_TARGET     arm-none-eabi)
 
-LIST(APPEND CMAKE_PROGRAM_PATH ${TOOL_DIR})
+
+LIST(APPEND CMAKE_PROGRAM_PATH  ${TOOL_DIR})
 
 set(CMAKE_AR                    ${GCC_DIR}/bin/arm-none-eabi-ar)
 

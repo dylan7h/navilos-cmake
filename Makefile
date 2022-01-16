@@ -1,6 +1,6 @@
 # Target Configuration
-# TOOLCHAIN_FILE			?=.config/toolchain/llvm-arm-none-eabi.cmake
-TOOLCHAIN_FILE			?=.config/toolchain/arm-none-eabi.cmake
+# TOOLCHAIN_FILE			?=.config/toolchain/arm-none-eabi.cmake
+TOOLCHAIN_FILE			?=.config/toolchain/llvm-arm-none-eabi.cmake
 CONFIG_FILE				?=.config/defconfig.cmake
 BINARY_DIR				?=build
 TARGET					?=TestApp
@@ -24,6 +24,7 @@ toolchain_install:
 
 config:
 	@cmake 	-C ${CONFIG_FILE} \
+			-DTARGET_MACHINE=${TARGET_MACHINE} \
 			-DCMAKE_TOOLCHAIN_FILE:PATH=${TOOLCHAIN_FILE} \
 			-DCMAKE_VERBOSE_MAKEFILE:PATH=${VERBOSE_MAKEFILE} \
 			-DCMAKE_BUILD_TYPE:STRING=${BUILD_TYPE} \
