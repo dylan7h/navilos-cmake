@@ -39,10 +39,10 @@ list(APPEND CSRC source/main.c)
 #           Link Libraries
 #++++++++++++++++++++++++++++++++++++++++++
 # Library Directories
-list(APPEND LIBDIR)
+list(APPEND LIBDIR ${CMAKE_HOME_DIRECTORY}/bin/lib)
 
 # Libaray Name
-list(APPEND LIBS)
+list(APPEND LIBS realview-pb-a8)
 
 #++++++++++++++++++++++++++++++++++++++++++
 #           Target Definition

@@ -19,4 +19,5 @@ set(DEFAULT_STARTUP         ${CMAKE_HOME_DIRECTORY}/boot/${BOOT_ARCH}/${TARGET_M
 set(DEFAULT_LINKER_SCRIPT   ${CMAKE_HOME_DIRECTORY}/boot/${BOOT_ARCH}/${TARGET_MACHINE}/default.ld)
 set(INCS                    ${CMAKE_HOME_DIRECTORY}/${BOOT_ARCH}/${TARGET_MACHINE})
 
+add_subdirectory(Lib)
 add_subdirectory(App)
