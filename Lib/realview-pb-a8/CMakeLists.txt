@@ -16,7 +16,9 @@ project(
 #++++++++++++++++++++++++++++++++++++++++++
 #           Include Directories
 #++++++++++++++++++++++++++++++++++++++++++
-list(APPEND INCS include)
+list(APPEND INCS Include/common)
+list(APPEND INCS Include/sfr)
+list(APPEND INCS Include/Interface)
 
 
 #++++++++++++++++++++++++++++++++++++++++++
@@ -26,8 +28,7 @@ list(APPEND INCS include)
 list(APPEND ASRC )
 
 # C
-list(APPEND CSRC Source/test.c)
-
+list(APPEND CSRC Source/uart/pl011.c)
 
 #++++++++++++++++++++++++++++++++++++++++++
 #           Link Libraries
